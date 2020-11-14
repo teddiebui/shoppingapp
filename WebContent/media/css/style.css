@@ -1,0 +1,77 @@
+@charset "ISO-8859-1";
+
+/***** default settings *****/
+* {
+	box-sizing: border-box
+}
+body {
+	font-size: 0.9rem;
+}
+body, li {
+	padding: 0;
+	margin: 0;
+}
+
+ul {
+	list-style-type: none;
+}
+
+a {
+	text-decoration: none;
+	display: inline-block;
+	color: black !important;
+}
+a:hover {
+	text-decoration: none;
+}
+.wrapper-width-960px {
+	width: 960px;
+	margin: auto;
+}
+
+/***** end default settings *****/
+
+/**** header styling ******/
+
+form[name="search"] button {
+	border: none;
+	background: none;
+}
+.cart {
+	position: relative;
+}
+
+.cart-info {
+	position: absolute;
+	display: none;
+}
+
+.cart:hover .cart-info {
+	position: absolute;
+	right: 0;
+	display: block;
+	box-shadow: 0 0 15px black;
+	min-width: 150px;
+	z-index: 999;
+	background: white;
+}
+
+
+
+/****** footer ******/
+.copyright {
+	text-align: center;
+}
+
+/*******************/
+
+/*******************/
+
+/*** for cart.jsp ****/
+
+div.card-item-container {
+	height: 100px;
+	margin: 15px 0;
+	box-shadow: 0 0 5px #666;
+}
+
