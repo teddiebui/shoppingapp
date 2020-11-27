@@ -4,9 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import org.springframework.dao.DataAccessException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 
 import com.teddie.dao.ProductDAO;
@@ -26,23 +25,21 @@ public class ProductDaoImpl implements ProductDAO {
 			product.setPrice(rs.getDouble("Price"));
 			product.setSrc(rs.getString("src"));
 			product.setType(rs.getString("type"));
-			product.setBrand(rs.getString("brand"));	
+			product.setBrand(rs.getString("brand"));
+			product.setNumber(1);
 			
 			return product;
 		}
 	};
+	
+	@Autowired
 	private JdbcTemplate jdbcTemplateObject;
-	
-	
-	public ProductDaoImpl() {
-		// TODO Auto-generated constructor stub
-	}
 
-	public ProductDaoImpl(JdbcTemplate obj) {
-		// TODO Auto-generated constructor stub
-		jdbcTemplateObject = obj;
-	}
-	
+//	public ProductDaoImpl(JdbcTemplate obj) {
+//		// TODO Auto-generated constructor stub
+//		jdbcTemplateObject = obj;
+//	}
+//	
 	@Override
 	public List<Product> listProducts(String pageNumber, String maxDisplays) {
 		// TODO Auto-generated method stub

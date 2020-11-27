@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.teddie.dao.impl.AccountDaoImpl;
@@ -15,18 +16,18 @@ class AccountDaoImplTest {
 	private AccountDaoImpl accountDAO;
 	
 	
-	@BeforeEach
-	void beforeEach() {
-		HikariConfig config = new HikariConfig();
-		config.setJdbcUrl( "jdbc:mysql://firstdatabaseinstance.cqza48oiiwcv.us-east-1.rds.amazonaws.com:3306/shoppingapp?serverTimezone=UTC");
-        config.setUsername( "binh_01" );
-        config.setPassword( "Binh1993" );
-        config.addDataSourceProperty( "cachePrepStmts" , "true" );
-        config.addDataSourceProperty( "prepStmtCacheSize" , "250" );
-        config.addDataSourceProperty( "prepStmtCacheSqlLimit" , "2048" );
-        HikariDataSource ds = new HikariDataSource(config);
-        accountDAO = new AccountDaoImpl(new JdbcTemplate(ds));
-        }
+//	@BeforeEach
+//	void beforeEach() {
+//		HikariConfig config = new HikariConfig();
+//		config.setJdbcUrl( "jdbc:mysql://firstdatabaseinstance.cqza48oiiwcv.us-east-1.rds.amazonaws.com:3306/shoppingapp?serverTimezone=UTC");
+//        config.setUsername( "binh_01" );
+//        config.setPassword( "Binh1993" );
+//        config.addDataSourceProperty( "cachePrepStmts" , "true" );
+//        config.addDataSourceProperty( "prepStmtCacheSize" , "250" );
+//        config.addDataSourceProperty( "prepStmtCacheSqlLimit" , "2048" );
+//        HikariDataSource ds = new HikariDataSource(config);
+//        accountDAO = new AccountDaoImpl(new JdbcTemplate(ds));
+//        }
 
 	@Test
 	void testGetAccount() {
@@ -45,8 +46,14 @@ class AccountDaoImplTest {
 		account.setPassword("xxxxxxxx");
 		account.setPhoneNumber("0123456789");
 		account.setUsername("halo_1234@gmail.com");
-		int result = accountDAO.addAccount(account);
-		assertTrue(result > 0);
+		int result = 0;
+		try {
+			result = accountDAO.addAccount(account);
+		} catch (DuplicateKeyException ex) {
+			result = 0;
+		}
+		System.out.println(result);
+		assertTrue(result >= 0);
 	}
 
 	@Test

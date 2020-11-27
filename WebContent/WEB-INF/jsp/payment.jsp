@@ -11,8 +11,6 @@
 <body>
 
 THANK YOU FOR YOUR PURCHASE<br>
-cart: ${sessionScope.cart}<br>
-cart items: ${sessionScope.cart.items }<br>
-<a href='<c:url value="index.jsp"></c:url>'>CONTINUE SHOPPING</a>
+<a href='<c:url value="/index"></c:url>'>CONTINUE SHOPPING</a>
 </body>
 </html>

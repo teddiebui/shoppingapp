@@ -9,7 +9,7 @@
 		<div class="row">
 			<!-- SECTION LEFT  -->
 			<div class="center col-12 col-xl-9">
-
+				
 				<c:import url="/list">
 					<c:param name="maxItemDisplay">${maxItemDisplay}</c:param>
 					<c:param name="pageNumber">${pageNumber}</c:param>

@@ -26,15 +26,15 @@
 									</div>
 									<div class="col-12 col-lg-3">
 										<div class="cart-item-quantity d-flex">
-											<a class="item-decrement" href="#">-</a> <span>Quantity:
-												${item.number}</span> <a class="item-increment" href="#">+</a>
+											<a class="item-decrement" href='<c:url value="/cart/remove/${item.ID}/decrement"/>'>-</a> <span>Quantity:
+												${item.number}</span> <a class="item-increment" href='<c:url value="/cart/add/${item.ID}/increment"/>'>+</a>
 										</div>
 									</div>
 									<div class="col-12 col-lg-2 cart-item-total-price">Total:
 										${item.number * item.price}$</div>
 									<div class="col-12 col-lg-1 item-remove">
 										<a
-											href='<c:url value="/AddToCartController?action=delete&ID=${item.ID}"></c:url>'>Remove</a>
+											href='<c:url value="/cart/remove/${item.ID}"></c:url>'>Remove</a>
 									</div>
 								</div>
 
@@ -54,7 +54,7 @@
 				<c:url value="?action=login"></c:url>
 				</c:when>
 			<c:otherwise>
-				<c:url value="/PayController"></c:url>
+				<c:url value="/payment"></c:url>
 			</c:otherwise>
 		</c:choose>'>BUY
 						NOW</a>
@@ -66,7 +66,7 @@
 				<div class="cart-no-item container">
 					<div class="message">YOUR CART IS EMPTY</div>
 					<div class="">
-						<a href='<c:url value="index.jsp"></c:url>' class="button">CONTINUE
+						<a href='<c:url value="/index"></c:url>' class="button">CONTINUE
 							SHOPPING</a>
 					</div>
 				</div>

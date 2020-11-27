@@ -55,7 +55,7 @@
 				<span>PRJ311X</span> <span>WELCOME TO MY PROJECT</span>
 			</div>
 			<div class="col-md-7 search">
-				<form name="search" action='<c:url value="/search.jsp"></c:url>'
+				<form name="search" action='<c:url value="/search"></c:url>'
 					method="get" class="d-flex">
 					<input type="hidden" name="current_page" value="${current_page}">
 					<input type="hidden" name="max_item_display"
@@ -72,16 +72,16 @@
 				</form>
 			</div>
 			<div class="col-6 col-md-1 cart">
-				<a href='<c:url value="cart.jsp"></c:url>'> <i
+				<a href='<c:url value="/cart"></c:url>'> <i
 					class="fas fa-shopping-cart"></i></a>
 				<div class="cart-info">
 					Your Cart has:
-					<c:out value="${sessionScope.cart.totalItems}"></c:out>
+					<c:out value="${sessionScope.cart.size}"></c:out>
 					items
 				</div>
 			</div>
 			<div class="col-6 col-md-1 purchase">
-				<a href='<c:url value="cart.jsp"></c:url>'>PURCHASE</a>
+				<a href='<c:url value="/cart"></c:url>'>PURCHASE</a>
 			</div>
 
 		</div>
@@ -90,7 +90,7 @@
 <div class="topnav">
 	<div class="container">
 		<ul class="d-md-flex justify-content-between">
-			<li><a href='<c:url value="index.jsp"></c:url>'>HOME</a></li>
+			<li><a href='<c:url value="/index"></c:url>'>HOME</a></li>
 			<li><a href="#">PRODUCT</a></li>
 			<li><a href="#">ABOUT</a></li>
 			<c:choose>
@@ -99,7 +99,7 @@
 					<li><a href="register">REGISTER</a></li>
 				</c:when>
 				<c:otherwise>
-					<li id="ig-577"><a href='logout'>SIGN OUT</a></li>
+					<li id="ig-577"><a href='/logout'>SIGN OUT</a></li>
 					
 				</c:otherwise>
 

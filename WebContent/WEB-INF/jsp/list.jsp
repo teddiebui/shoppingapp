@@ -12,7 +12,7 @@
 	<c:forEach var="item" begin="0" items="${products}">
 		<div class="item-container col-12 col-md-4">
 			<div class="item-image-container">
-				<a href='<c:url value="/details?ID=${item.ID}"></c:url>'><img src="${item.src}" width="100%" height="100%"></a>
+				<a href='<c:url value="/details/${item.ID}"></c:url>'><img src="${item.src}" width="100%" height="100%"></a>
 			</div>
 			<div class="item-category">${item.type}</div>
 			<div class="item-name">${item.name}</div>

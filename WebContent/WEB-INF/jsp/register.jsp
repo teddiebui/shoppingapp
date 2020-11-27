@@ -4,11 +4,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
+<c:set var="url"><c:url value="/register_handler"></c:url></c:set>
 <div class="modal-register">
 
-	<div class="button-close"><a href="<c:url value="index"/>">CLOSE</a></div>
+	<div class="button-close"><a href="<c:url value="/index"/>">CLOSE</a></div>
 	<div class="caption">CREATE YOUR SHOPPING ACCOUNT</div>
-	<form:form class="display-block" name="register" method="post" action="register_handler" modelAttribute="newAccount" onsubmit="return validateRegister()">
+	<form:form class="display-block" name="register" method="post" action="${url}" modelAttribute="newAccount" onsubmit="return validateRegister()">
 		<input type="hidden" name="current_url" value='${pageContext.request.requestURI}'>
 		<div>
 			<form:label path="username">Username: </form:label>

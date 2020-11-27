@@ -1,5 +1,6 @@
 package com.teddie.dao.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -8,8 +9,9 @@ import com.teddie.model.Account;
 import com.teddie.model.Product;
 
 public class AccountDaoImpl implements AccountDAO{
-	
+	@Autowired
 	private JdbcTemplate jdbcTemplateObject;
+	
 	private static final RowMapper<Account> ROW_MAPPER = (rs, rowNum) -> {
 		Account account = new Account();
 		account.setUsername(rs.getString("email"));
@@ -19,14 +21,6 @@ public class AccountDaoImpl implements AccountDAO{
 		return account;
 	};
 	
-	public AccountDaoImpl(JdbcTemplate obj) {
-		// TODO Auto-generated constructor stub
-		jdbcTemplateObject = obj;
-	}
-	
-	public AccountDaoImpl() {}
-
-
 	@Override
 	public int addAccount(Account account) {
 		// TODO Auto-generated method stub

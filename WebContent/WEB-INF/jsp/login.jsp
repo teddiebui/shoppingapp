@@ -5,10 +5,10 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 <div class="modal-login">
-	<div class="button-close"><a href='<c:url value="index"/>'>CLOSE</a></div>
+	<div class="button-close"><a href='<c:url value="/index"/>'>CLOSE</a></div>
 	<div class="caption">SIGN IN</div>
 	
-	<form name="login" method="post" action="login" onsubmit="return validateLogin()">
+	<form name="login" method="post" action='<c:url value ="/login" />' onsubmit="return validateLogin()">
 	<input type="hidden" name="current_url" value='${pageContext.request.requestURI}'>
 		<div class="form-142">
 			<label for="username">EMAIL:</label> 

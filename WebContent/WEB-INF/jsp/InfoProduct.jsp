@@ -6,6 +6,8 @@
 <c:import url="header.jsp" />
 
 <!-- TODO code for body of this page here -->
+<c:set var="product" value="${product}" scope="request"></c:set>
+<c:set var="myProduct" value="custom" scope="request"></c:set>
 <main>
 	<div class="container">
 		<div class="item-details-container row">
@@ -17,7 +19,7 @@
 				<div class="item-name">${product.name}</div>
 				<div class="item-price">${product.price}$</div>
 				<div class="item-description">${product.description}</div>
-				<div class="add-cart"><a href='<c:url value="/cart?action=add&ID=${product.ID}"></c:url>'><i class="fas fa-shopping-cart"></i> ADD TO CART</a></div>
+				<div class="add-cart"><a href='<c:url value="/cart/add/${product.ID}"></c:url>'><i class="fas fa-shopping-cart"></i> ADD TO CART</a></div>
 			</div>
 		</div>
 	</div>

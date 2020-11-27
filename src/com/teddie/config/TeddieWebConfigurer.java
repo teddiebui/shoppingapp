@@ -36,18 +36,21 @@ public class TeddieWebConfigurer implements WebMvcConfigurer{
 	}
 	
 	@Bean
-	public ProductDaoImpl productDAO(JdbcTemplate jdbcTemplateObject) {
-		return new ProductDaoImpl(jdbcTemplateObject);
-	}
-	
-	@Bean
-	public AccountDaoImpl accountDAO(JdbcTemplate jdbcTemplateObject) {
-		return new AccountDaoImpl(jdbcTemplateObject);
-	}
-	@Bean
 	public JdbcTemplate jdbcTemplateObject() {
 		HikariCPImpl hikariCP = new HikariCPImpl();
         return new JdbcTemplate(hikariCP.getDataSource());
 	}
+	
+	@Bean
+	public ProductDaoImpl productDAO() {
+		return new ProductDaoImpl();
+	}
+	
+	@Bean
+	public AccountDaoImpl accountDAO() {
+		return new AccountDaoImpl();
+	}
+	
+	
 
 }

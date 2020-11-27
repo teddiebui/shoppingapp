@@ -25,7 +25,10 @@ public class Cart {
 	public void remove(int ID) {
 		for (Product item: items) {
 			if (item.getID() == ID) {
-				items.remove(item);
+				item.setNumber(item.getNumber()-1);
+				if (item.getNumber() <= 0) {
+					items.remove(item);
+				}
 				return;
 			}
 		}
@@ -44,7 +47,7 @@ public class Cart {
 		return items;
 	}
 	
-	public int getTotalItems() {
+	public int getSize() {
 		int total = 0;
 		
 		for (Product item: items) {

@@ -43,6 +43,9 @@ public class Account {
 		this.address = address;
 	}
 
+	public boolean isEmpty() {
+		return username.isEmpty();
+	}
 
 	@Override
 	public String toString() {
